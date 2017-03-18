@@ -1,0 +1,21 @@
+extends ./layout
+
+h1= title
+
+block title  
+  title Articles
+
+block content  
+  #articles
+  each article in articles
+    section.section--center.mdl-grid.mdl-grid--no-spacing.mdl-shadow--2dp
+      .mdl-card.mdl-cell.mdl-cell--12-col
+        .mdl-card__supporting-text 
+          h4.body=article.title
+          | #{article.body}
+      .mdl-menu__container.is-upgraded(style='right: 8px; top: 40px; width: 124px; height: 160px;')
+        .mdl-menu__outline.mdl-menu--bottom-right(style='width: 124px; height: 160px;')
+        ul.mdl-menu.mdl-js-menu.mdl-menu--bottom-right.is-animating(for='btn3', data-upgraded=',MaterialMenu', style='clip: rect(0px 124px 0px 124px);')
+          li.mdl-menu__item(tabindex='-1', style='') Lorem
+          li.mdl-menu__item(disabled='', tabindex='-1', style='') Ipsum
+          li.mdl-menu__item(tabindex='-1', style='') Dolor

@@ -1,0 +1,59 @@
+//- layout.jade
+doctype html  
+html  
+  head
+    block title
+      title The title
+    link(rel="stylesheet", href="https://fonts.googleapis.com/icon?family=Material+Icons")
+    //- link(rel="stylesheet", href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css") 
+    link(rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_purple-pink.min.css")
+    link(href='/stylesheets/style.css', rel='stylesheet', type='text/css')
+    script(src="https://code.getmdl.io/1.3.0/material.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/dialog-polyfill/0.4.2/dialog-polyfill.min.js")
+    script(src="https://storage.googleapis.com/code.getmdl.io/1.0.6/material.min.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js")
+    script(src="/javascripts/script.js")
+  body.mdl-demo.mdl-color--grey-100.mdl-color-text--grey-700.mdl-base
+  #dialog
+    dialog.mdl-dialog
+      .mdl-dialog__content
+        form(action='addBookmark', method="post", id='addBookmarkForm')
+          .mdl-textfield.mdl-js-textfield
+            input#bookmarkUrl.mdl-textfield__input(type='text',name='bookmarkUrl')
+            label.mdl-textfield__label(for='bookmarkUrl') Paste site url
+      .mdl-dialog__actions
+        button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.add-bookmark Save
+        button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.close Cancel
+    #content
+    .mdl-layout.mdl-js-layout.mdl-layout--fixed-header
+      header.mdl-layout__header
+        .mdl-layout__header-row
+          // Title
+          span.mdl-layout-title Bookmark manager
+          // Add spacer, to align navigation to the right
+          .mdl-layout-spacer
+          button#add.dialog-button.mdl-button.mdl-js-button.mdl-button--fab.mdl-js-ripple-effect.mdl-button--colored.mdl-shadow--4dp.mdl-color--accent(data-upgraded=',MaterialButton,MaterialRipple')
+            i.material-icons(role='presentation') add
+            span.visuallyhidden Add
+            span.mdl-button__ripple-container
+              span.mdl-ripple.is-animating(style='width: 160.392px; height: 160.392px; transform: translate(-50%, -50%) translate(28px, 25px);')
+          // Navigation. We hide it in small screens.
+          nav.mdl-navigation.mdl-layout--large-screen-only
+      .mdl-layout__drawer
+        span.mdl-layout-title Title
+        nav.mdl-navigation
+          a.mdl-navigation__link(href='') Link
+          a.mdl-navigation__link(href='') Link
+          a.mdl-navigation__link(href='') Link
+          a.mdl-navigation__link(href='') Link
+      main.mdl-layout__content
+        div.mdl-layout__tab-panel.is-active
+          block content
+    block footer
+      footer
+        span Copyright #{year}
+button#demo-show-toast.mdl-button.mdl-js-button.mdl-button--raised(type='button') Show Toast
+#demo-toast-example.mdl-js-snackbar.mdl-snackbar
+  .mdl-snackbar__text
+  button.mdl-snackbar__action(type='button')
+      
