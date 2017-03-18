@@ -19,7 +19,7 @@ ArticleRepository.prototype.get = function(id, callback)
 ArticleRepository.prototype.save = function(articles, callback)
 {
     var article = null;
-    if( typeof(articles.length) == "undefined"     )
+    if( typeof(articles.length) == "undefined")
         articles = [articles];
     
     for( var i = 0; i < articles.length; ++i)
